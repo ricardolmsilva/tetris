@@ -1,0 +1,39 @@
+body{
+    /* background-image: linear-gradient(to left bottom, #c94e4e, #b4454f, #9e3d4e, #87364a, #713045); */
+    min-height: 100vh;
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 9px;
+    display: flex;
+}
+
+#grid{
+    background: rgba(0,0,0,0.2);
+    border: solid 1px rgb(29, 29, 29);
+    width: 300px;
+    height: 600px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+#grid div{
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.tetromino{
+    background:radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(66,66,66,1) 0%, rgba(0,0,0,1) 80%, rgba(0,0,0,1) 90%, rgba(0,0,0,1) 100%);
+    border: solid 1px black;
+    border-radius: 7px;
+    box-sizing: border-box;
+}
