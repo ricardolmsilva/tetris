@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const scoreDisplay = document.querySelector("#score span");
     const linesDisplay = document.querySelector("#lines span");
     const startBtn = document.querySelector("#start-button");
+    const over = document.querySelector("#game-over");
 
     let gridCells = Array.from(document.querySelectorAll("#grid div"));
 
@@ -273,6 +274,7 @@ document.addEventListener("DOMContentLoaded", () => {
             )
         ) {
             startBtn.style.display = "none";
+            over.style.display = "block";
             end();
         }
     }

@@ -83,6 +83,12 @@ button {
     width: 30px;
 }
 
+#game-over {
+    color: red;
+    font-size: 30px;
+    display: none;
+}
+
 .tetromino {
     background: black;
     box-sizing: border-box;
