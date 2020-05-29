@@ -1,39 +1,108 @@
-body{
-    /* background-image: linear-gradient(to left bottom, #c94e4e, #b4454f, #9e3d4e, #87364a, #713045); */
+body {
+    background-color: rgb(0, 69, 173);
     min-height: 100vh;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+
     font-size: 9px;
     display: flex;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.container {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    gap: 30px;
 }
 
-#grid{
-    background: rgba(0,0,0,0.2);
-    border: solid 1px rgb(29, 29, 29);
+#score {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#grid {
+    /* background: rgba(0, 0, 0, 0.2); */
+    background: white;
+    /* border: solid 1px rgb(29, 29, 29); */
     width: 300px;
     height: 600px;
     display: flex;
     flex-wrap: wrap;
-
+    box-sizing: border-box;
 }
 
-#grid div{
+#grid div {
     height: 30px;
     width: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    border: solid 1px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
 }
 
-.tetromino{
-    background:radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(66,66,66,1) 0%, rgba(0,0,0,1) 80%, rgba(0,0,0,1) 90%, rgba(0,0,0,1) 100%);
-    border: solid 1px black;
-    border-radius: 7px;
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    width: 120px;
+    height: 30px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 2px 2px 6px rgb(0, 0, 0);
+    background: linear-gradient(#bd1051, #cc1258);
+    color: white;
+}
+
+#score {
+    font-size: 30px;
+    color: white;
+    transition: font-size 0.5s;
+}
+
+#mini-grid {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#mini-grid div {
+    height: 30px;
+    width: 30px;
+}
+
+.tetromino {
+    background: black;
     box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+}
+
+.tetromino::after {
+    content: " ";
+    width: 41px;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    left: -15px;
+    rotate: 45deg;
+    bottom: -10px;
 }

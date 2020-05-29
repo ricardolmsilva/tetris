@@ -1,20 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <script src="app.js" charset="utf-8"></script>
-    <title>Tetris Game</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles.css" />
+        <script src="app.js" charset="utf-8" type="module"></script>
+        <title>Tetris Game</title>
+    </head>
+    <body>
+        <div class="container">
+            <div id="grid">
+                <!-- Content add here -->
+            </div>
+            <div id="sidebar">
+                <h1>Tetris</h1>
+                <div class="details">
+                    <h3 id="score">Score<span>0</span></h3>
+                    <h3>Lines:</h3>
+                </div>
 
-    <!-- <h3 id="score">Score:<span>0</span></h3>
-    <button id="start-button">Start</button> -->
-    
-    <div id="grid">
-        <!-- Content add here -->
-    </div>
+                <div id="mini-grid"></div>
+                <div id="buttons">
+                    <button id="start-button">Play/Pause (P)</button>
+                    <button
+                        id="restart-button"
+                        onClick="window.location.reload();"
+                    >
+                        Restart (R)
+                    </button>
+                </div>
+            </div>
+        </div>
 
-</body>
+        <script>
+            const grid = document.querySelector("#grid");
+            // Create the grid of the game
+            for (let i = 0; i < 200; i++) {
+                const cell = document.createElement("div");
+                cell.classList.add("cell");
+                // cell.innerText = i;
+                grid.appendChild(cell);
+            }
+
+            for (let i = 0; i < 10; i++) {
+                const cell = document.createElement("div");
+                cell.classList.add("cell", "taken");
+                // cell.innerText = i;
+                grid.appendChild(cell);
+            }
+
+            const miniGrid = document.querySelector("#mini-grid");
+            for (let i = 0; i < 16; i++) {
+                const cell = document.createElement("div");
+                cell.classList.add("cell");
+                // cell.innerText = i;
+                miniGrid.appendChild(cell);
+            }
+        </script>
+    </body>
 </html>
