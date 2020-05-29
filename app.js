@@ -192,7 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
             !nextRandom && generateNextTetromino();
             displayNextShape();
             startBtn.innerText = "Pause (P)";
-            timerId = setInterval(moveDown, 200);
+            timerId = setInterval(moveDown, 500);
             DrawTetromino();
         }
     }
