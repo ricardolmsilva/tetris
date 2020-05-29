@@ -102,11 +102,11 @@ button {
 
 .tetromino::after {
     content: " ";
-    width: 41px;
-    height: 30px;
+    width: 40px;
+    height: 28px;
     background-color: rgba(0, 0, 0, 0.2);
     position: absolute;
     left: -15px;
-    rotate: 45deg;
+    transform: rotate(45deg);
     bottom: -10px;
 }
