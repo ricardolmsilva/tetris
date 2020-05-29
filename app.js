@@ -3,12 +3,12 @@ import { row } from "./variables.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     let timerId = null;
-    let line = score / 10;
     let tetrominoPosition = 4;
     let tetrominoRotation = 0;
     let random = Math.floor(Math.random() * theTetrominoes.length);
     let tetromino;
     let nextRandom;
+    let line = 0;
     let score = 0;
 
     let colors = [
@@ -22,10 +22,11 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
     const scoreDisplay = document.querySelector("#score span");
+    const linesDisplay = document.querySelector("#lines span");
     const startBtn = document.querySelector("#start-button");
+
     let gridCells = Array.from(document.querySelectorAll("#grid div"));
 
-    console.log(gridCells);
     function generateNextTetromino() {
         nextRandom = Math.floor(Math.random() * theTetrominoes.length);
     }
@@ -125,14 +126,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function checkRotatedPosition(P) {
-        P = P || tetrominoPosition; //get tetromino position.  Then, check if the piece is near the left side.
+        P = P || tetrominoPosition;
         if ((P + 1) % row < 4) {
-            //add 1 because the position index can be 1 less than where the piece is (with how they are indexed).
             if (isAtRight()) {
-                //use actual position to check if it's flipped over to right side
-
-                tetrominoPosition += 1; //if so, add one to wrap it back around
-                checkRotatedPosition(P); //check again.  Pass position from start, since long block might need to move more.
+                tetrominoPosition += 1;
+                checkRotatedPosition(P);
             }
         } else if (P % row > 5) {
             if (isAtLeft()) {
@@ -188,9 +186,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (timerId) {
             clearInterval(timerId);
             timerId = null;
+            startBtn.innerText = "Play (P)";
         } else {
             !nextRandom && generateNextTetromino();
             displayNextShape();
+            startBtn.innerText = "Pause (P)";
             timerId = setInterval(moveDown, 200);
             DrawTetromino();
         }
@@ -249,8 +249,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     gridCells[index].classList.contains("taken")
                 )
             ) {
-                score += 10;
+                score += 15;
+                line++;
                 scoreDisplay.innerText = score;
+                linesDisplay.innerText = line;
 
                 gridRow.forEach((index) => {
                     gridCells[index].classList.remove("taken");

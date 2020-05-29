@@ -13,15 +13,15 @@
                 <!-- Content add here -->
             </div>
             <div id="sidebar">
-                <h1>Tetris</h1>
+                <h1 id="title">TETRIS</h1>
                 <div class="details">
-                    <h3 id="score">Score<span>0</span></h3>
-                    <h3>Lines:</h3>
+                    <h3 id="score" class="details">Score: <span>0</span></h3>
+                    <h3 id="lines" class="details">Lines: <span>0</span></h3>
                 </div>
 
                 <div id="mini-grid"></div>
                 <div id="buttons">
-                    <button id="start-button">Play/Pause (P)</button>
+                    <button id="start-button">Play (P)</button>
                     <button
                         id="restart-button"
                         onClick="window.location.reload();"
@@ -44,7 +44,7 @@
 
             for (let i = 0; i < 10; i++) {
                 const cell = document.createElement("div");
-                cell.classList.add("cell", "taken");
+                cell.classList.add("cell", "taken", "limit");
                 // cell.innerText = i;
                 grid.appendChild(cell);
             }

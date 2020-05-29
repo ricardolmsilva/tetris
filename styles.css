@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(0, 69, 173);
+    /* background-color: rgb(0, 69, 173); */
     min-height: 100vh;
     margin: 0;
     padding: 0;
@@ -18,17 +18,42 @@ body {
     gap: 30px;
 }
 
-#score {
+#title {
+    font-size: 50px;
+    color: rgb(27, 27, 27);
+}
+
+.details {
+    color: rgb(27, 27, 27);
+    font-size: 16px;
+    align-self: baseline;
+}
+
+#buttons {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    width: 120px;
+    height: 30px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    background: rgb(27, 27, 27);
+    color: white;
+}
+
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
 }
 
 #grid {
-    /* background: rgba(0, 0, 0, 0.2); */
-    background: white;
-    /* border: solid 1px rgb(29, 29, 29); */
     width: 300px;
     height: 600px;
     display: flex;
@@ -44,37 +69,6 @@ body {
     align-items: center;
     border: solid 1px rgba(0, 0, 0, 0.05);
     box-sizing: border-box;
-}
-
-#sidebar {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#buttons {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-
-button {
-    width: 120px;
-    height: 30px;
-    margin-bottom: 20px;
-    border-radius: 20px;
-    border: none;
-    box-shadow: 2px 2px 6px rgb(0, 0, 0);
-    background: linear-gradient(#bd1051, #cc1258);
-    color: white;
-}
-
-#score {
-    font-size: 30px;
-    color: white;
-    transition: font-size 0.5s;
 }
 
 #mini-grid {
@@ -94,6 +88,10 @@ button {
     box-sizing: border-box;
     overflow: hidden;
     position: relative;
+}
+
+.taken {
+    border: none !important;
 }
 
 .tetromino::after {
