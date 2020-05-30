@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let nextRandom;
     let line = 0;
     let score = 0;
+    let lvl = 1;
+    let timeInterval = 1000;
 
     let colors = [
         "#2d7dbc", // azul
@@ -24,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const scoreDisplay = document.querySelector("#score span");
     const linesDisplay = document.querySelector("#lines span");
     const startBtn = document.querySelector("#start-button");
+    const Level = document.querySelector("#level span");
     const over = document.querySelector("#game-over");
 
     let gridCells = Array.from(document.querySelectorAll("#grid div"));
@@ -151,7 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function control(event) {
-        console.log(event.keyCode);
+        // console.log(event.keyCode);
 
         switch (event.keyCode) {
             case 37:
@@ -192,7 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
             !nextRandom && generateNextTetromino();
             displayNextShape();
             startBtn.innerText = "Pause (P)";
-            timerId = setInterval(moveDown, 500);
+            timerId = setInterval(moveDown, timeInterval / lvl);
             DrawTetromino();
         }
     }
@@ -254,7 +257,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 line++;
                 scoreDisplay.innerText = score;
                 linesDisplay.innerText = line;
-
+                if (score % 75 === 0) {
+                    lvl++;
+                    Level.innerText = lvl;
+                    clearInterval(timerId);
+                    timerId = setInterval(moveDown, timeInterval / lvl);
+                    console.log(lvl);
+                }
                 gridRow.forEach((index) => {
                     gridCells[index].classList.remove("taken");
                     gridCells[index].classList.remove("tetromino");
